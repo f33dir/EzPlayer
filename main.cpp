@@ -1,6 +1,7 @@
 #include <iostream>
 #include "mp3manager.h"
 #include "mp3filemanager.h"
+#include "taglib/taglib/tag.h"
 using namespace std;
 
 int main(){
