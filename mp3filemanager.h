@@ -8,9 +8,9 @@
 #include <filesystem>
 class mp3FileManager{
 public:
-    void loadFilepaths(mp3Manager&);//+
-    vector<song> getSongs(vector<string>);
-    void saveAll(mp3Manager&);//+
+    static void loadFilepaths(mp3Manager& path);//+
+    static vector<song> getSongs(vector<string>);
+    static void saveAll(mp3Manager&);//+
     virtual void loadSongs(mp3Manager&)=0;//+
 };
 class dummyMp3FileManager : public mp3FileManager{

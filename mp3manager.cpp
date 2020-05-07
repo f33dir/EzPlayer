@@ -6,7 +6,7 @@
 #include "mp3filemanager.h"
 using namespace std;
 mp3Manager::mp3Manager(){
-};
+}
 //
 vector<song> mp3Manager::getAll(){
     return  _database;
@@ -71,7 +71,13 @@ vector<song> mp3Manager::getNameList(vector<song> input, string name){
     };
     return output;
 }
-
-
-
-
+void mp3Manager::addDirectory(string path){
+    _filepathContainer.push_back(path);
+}
+//
+void mp3Manager::rescanDirectories(){
+    _database = dummyMp3FileManager::getSongs(_filepathContainer);
+}
+vector<song> mp3Manager::search(string name, string filename, string year, string genre, string artist, string album){
+      return getNameList(getFilenameList(getYearList(getGenreList(getArtistList(getAlbumList(getAll(),album),artist),genre),year),filename),name);
+}

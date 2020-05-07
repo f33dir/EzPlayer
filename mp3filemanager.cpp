@@ -38,9 +38,9 @@ vector<song> mp3FileManager::getSongs(vector<string> input){
     for(int i = 0;i<input.size();i++){
         for(auto& p: fs::recursive_directory_iterator(input[i])){
             string path = p.path();
-            if((!p.is_directory())&&(path.find(".mp3") == path.size()-5)){
+            if((!p.is_directory())&&(path.find(".mp3") == path.size()-4)){
                 song temp;
-                temp.dummyUpdateSongClass(input[i]+path);
+                temp.dummyUpdateSongClass(path);
                 output.push_back(temp);
             }
         }
