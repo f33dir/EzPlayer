@@ -13,16 +13,16 @@ void song::dummyUpdateSongClass(string path){
     getline(file,this->_album);
 }
 void song::updateSongClass(string path){
-    TagLib::FileRef f(path);
+    TagLib::FileRef f(path.c_str());
     if(!f.isNull()&& f.tag()){
-        _filename = path;
-        TagLib::Tag *file = f.tag();
-        this->_artist = file->artist();
-        this->_album = file->album();
-        this->_genre = file->genre();
-        this->_name = file->title();
-        this->_year =(string)file->year();
-    }
+    _filename = path;
+    TagLib::Tag *file = f.tag();
+    this->_artist = string(file->artist().toCString());
+    this->_album = string(file->album().toCString());
+    this->_genre = string(file->genre().toCString());
+    this->_name = string(file->title().toCString());
+    this->_year = to_string(file->year());
+}
 }
 song::song(){
 

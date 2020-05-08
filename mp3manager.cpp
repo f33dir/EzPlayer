@@ -76,7 +76,7 @@ void mp3Manager::addDirectory(string path){
 }
 //
 void mp3Manager::rescanDirectories(){
-    _database = dummyMp3FileManager::getSongs(_filepathContainer);
+    _database = mp3FileManager::getSongs(_filepathContainer);
 }
 vector<song> mp3Manager::search(string name, string filename, string year, string genre, string artist, string album){
       return getNameList(getFilenameList(getYearList(getGenreList(getArtistList(getAlbumList(getAll(),album),artist),genre),year),filename),name);
