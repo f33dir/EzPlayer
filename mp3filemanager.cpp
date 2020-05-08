@@ -40,14 +40,14 @@ vector<song> mp3FileManager::getSongs(vector<string> input){
             string path = p.path();
             if((!p.is_directory())&&(path.find(".mp3") == path.size()-4)){
                 song temp;
-                temp.dummyUpdateSongClass(path);
+                temp.updateSongClass(path);
                 output.push_back(temp);
             }
         }
     }
     return output;
 }
-void dummyMp3FileManager::loadSongs(mp3Manager &m){
+void mp3FileManager::loadSongs(mp3Manager &m){
     ifstream file("cachesongs");
     vector<song>* output = m.getDatabase();
     string check;

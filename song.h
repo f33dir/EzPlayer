@@ -4,6 +4,7 @@
 #include <string>
 #include <filesystem>
 #include <fstream>
+#include <tag.h>
 using namespace std;
 class song{
 public:
@@ -25,5 +26,6 @@ public:
     string serialize();//+
     void deserialize(ifstream&);//+
     void dummyUpdateSongClass(string);//+
+    void updateSongClass(string);//+
 };
 #endif // SONG_H
