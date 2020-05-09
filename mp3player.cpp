@@ -12,9 +12,9 @@ mp3Player::~mp3Player(){
 bool mp3Player::initializeEngine(){
     return BASS_Init(-1,44100,0,0,0);
 }
-void mp3Player::importSong(song input){
+void mp3Player::playSong(song input){
     this->stopStream();
-    sleep_for(std::chrono::milliseconds(100));
+    this_thread::sleep_for(std::chrono::milliseconds(100));
     _stream =  BASS_StreamCreateFile(false,input.getFilename().c_str(),0,0,0);
     _current = input;
     startThread();
@@ -35,17 +35,17 @@ void mp3Player::pauseStream(){
 void mp3Player::resumeStream(){
     BASS_ChannelPlay(_stream,false);
 }
-void mp3Player::restartStream(){
+void mp3Player::restart(){
     BASS_ChannelPlay(_stream,true);
 }
 void mp3Player::stopStream(){
     BASS_ChannelStop(_stream);
 }
 void mp3Player::playPause(){
-    if(BASS_ChannelIsActive(_stream) = BASS_ACTIVE_PLAYING){
+    if(BASS_ChannelIsActive(_stream) == BASS_ACTIVE_PLAYING){
         pauseStream();
     }
-    else if(BASS_ChannelIsActive(_stream) = BASS_ACTIVE_PAUSED){
+    else if(BASS_ChannelIsActive(_stream) == BASS_ACTIVE_PAUSED){
         resumeStream();
     }
 }

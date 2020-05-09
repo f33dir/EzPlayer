@@ -18,17 +18,11 @@ int main(){
     mp3FileManager::loadFilepaths(a);
     mp3FileManager::loadSongs(a);
     cout<<a.getAll()[0].getFilename();
-    b.initializeEngine();
-    b.importSong(a.getAll()[0]);
-    b.startThread();
     cout << "start\n";
     cin>>input;
-    b.pauseStream();
     cout << "pause \n";
     cin>>input;
-    b.resumeStream();
     cout<< "resume \n";
     cin>>input;
     cout << "stop\n";
-    b.stopStream();
 }
