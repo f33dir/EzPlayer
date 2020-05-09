@@ -15,7 +15,12 @@ public:
     void switchPlaying();
     void setPosition();
     void startPlaying();
-    void play();
+    void startThread();
+    void stopThread();
+    void pause();
     void stop();
+    void resume();
+    void restart();
+    void switchState();
 };
 #endif // MP3PLAYER_H

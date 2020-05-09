@@ -21,7 +21,11 @@ int main(){
     cout<<a.getAll()[0].getFilename();
     b.initialize();
     b.importSong(a.getAll()[0]);
-    b.play();
-    cin >>input;
+    b.startThread();
+    b.resume();
+    b.pause();
+    cin>>input;
+    b.resume();
     b.stop();
+    cin>>input;
 }
