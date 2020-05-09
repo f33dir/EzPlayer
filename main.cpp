@@ -21,6 +21,7 @@ int main(){
     cout<<a.getAll()[0].getFilename();
     b.initialize();
     b.importSong(a.getAll()[0]);
-    cin >>input;
     b.play();
+    cin >>input;
+    b.stop();
 }

@@ -21,9 +21,8 @@ void mp3Player::startPlaying(){
 }
 ///
 void mp3Player::play(){
-    thread thr(startPlaying);
-    while (BASS_ChannelIsActive(_stream) != BASS_ACTIVE_STOPPED) {
-        std::this_thread::sleep_for(std::chrono::milliseconds(200));
-    };
-    thr.join();
+    this->_thr = thread(&mp3Player::startPlaying,this);
+}
+void mp3Player::stop(){
+    _thr.join();
 }
