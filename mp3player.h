@@ -7,20 +7,19 @@ class mp3Player{
     song _current;
     HSTREAM _stream;
     thread _thr;
+    void resumeStream();
+    void pauseStream();
+    bool initializeEngine();
+    void stopStream();
+    void initStream();
+    void startThread();
 public:
     ~mp3Player();
-    bool initialize();
-    void importSong(song);
+    mp3Player();
+    void playSong(song);
     song isPlaying();
-    void switchPlaying();
     void setPosition();
-    void startPlaying();
-    void startThread();
-    void stopThread();
-    void pause();
-    void stop();
-    void resume();
     void restart();
-    void switchState();
+    void playPause();
 };
 #endif // MP3PLAYER_H

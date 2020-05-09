@@ -8,8 +8,7 @@
 #include <thread>
 using namespace std;
 int main(){
-    int input;
-    BASS_Init(-1,44100,0,0,0);
+    string input;
     mp3Manager a;
     mp3Player b;
     a.addDirectory("/home/f33dir/build-template-Desktop-u041fu043e u0443u043cu043eu043bu0447u0430u043du0438u044e/mp3folder/");
@@ -19,13 +18,17 @@ int main(){
     mp3FileManager::loadFilepaths(a);
     mp3FileManager::loadSongs(a);
     cout<<a.getAll()[0].getFilename();
-    b.initialize();
+    b.initializeEngine();
     b.importSong(a.getAll()[0]);
     b.startThread();
-    b.resume();
-    b.pause();
+    cout << "start\n";
     cin>>input;
-    b.resume();
-    b.stop();
+    b.pauseStream();
+    cout << "pause \n";
     cin>>input;
+    b.resumeStream();
+    cout<< "resume \n";
+    cin>>input;
+    cout << "stop\n";
+    b.stopStream();
 }
