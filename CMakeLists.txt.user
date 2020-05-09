@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE QtCreatorProject>
-<!-- Written by QtCreator 4.5.2, 2020-05-08T23:33:56. -->
+<!-- Written by QtCreator 4.5.2, 2020-05-09T13:34:02. -->
 <qtcreator>
  <data>
   <variable>EnvironmentId</variable>
@@ -401,6 +401,7 @@
     </valuelist>
     <value type="QString" key="CMakeProjectManager.CMakeRunConfiguation.Title">lab5</value>
     <value type="QString" key="CMakeProjectManager.CMakeRunConfiguration.Arguments"></value>
+    <value type="bool" key="CMakeProjectManager.CMakeRunConfiguration.UseTerminal">true</value>
     <value type="QString" key="CMakeProjectManager.CMakeRunConfiguration.UserWorkingDirectory"></value>
     <value type="QString" key="CMakeProjectManager.CMakeRunConfiguration.UserWorkingDirectory.default">/home/f33dir/build-template-Desktop-u041eu0442u043bu0430u0434u043au0430</value>
     <value type="int" key="PE.EnvironmentAspect.Base">2</value>

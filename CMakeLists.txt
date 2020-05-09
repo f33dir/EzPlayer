@@ -19,8 +19,7 @@ add_executable(${PROJECT_NAME} "main.cpp"
                                "mp3manager.cpp" "mp3manager.h"
                                "song.h" "song.cpp"
                                "mp3filemanager.h" "mp3filemanager.cpp" "bass/bass.h"
-                               )
+                               "mp3player.h" "mp3player.cpp")
 add_subdirectory(taglib/taglib taglib/bindings)
-#add_subdirectory( ${CMAKE_CURRENT_SOURCE_DIR}/bass)
 target_link_libraries(lab5 tag)
 TARGET_LINK_LIBRARIES(lab5 bass)

@@ -9,7 +9,6 @@ using namespace std;
 class mp3Manager{
     vector<song> _database;
     vector<string> _filepathContainer;
-
 public:
     vector<song> getArtistList(vector<song>,string artist);//+
     vector<song> getNameList(vector<song>, string name);//+
@@ -24,6 +23,7 @@ public:
     void addDirectory(string);//+
     void rescanDirectories();//+
     vector<song> search(string,string,string,string,string,string);
+    void clearData();
 };
 
 #endif // MP3MANAGER_H

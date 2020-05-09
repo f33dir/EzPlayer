@@ -12,7 +12,8 @@ void mp3FileManager::saveAll(mp3Manager& m){
     }
     file.close();
     file.open("cachesongs");
-    file<<"</songsStart>";
+    file<<"</cachesongs>";
+    file<<'\n';
     for(int i = 0;i<m.getDatabase()->size();i++){
         file<<(*(m.getDatabase()))[i].serialize();
     }
@@ -52,9 +53,8 @@ void mp3FileManager::loadSongs(mp3Manager &m){
     vector<song>* output = m.getDatabase();
     string check;
     getline(file,check);
-    string input;
-    if(check == "</songcache>"){
-        while(input!=""){
+    if(check == "</cachesongs>"){
+        while(!file.eof()){
             song temp;
             temp.deserialize(file);
             output->push_back(temp);
