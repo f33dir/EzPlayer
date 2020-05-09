@@ -18,11 +18,15 @@ int main(){
     mp3FileManager::loadFilepaths(a);
     mp3FileManager::loadSongs(a);
     cout<<a.getAll()[0].getFilename();
+    b.playSong(a.getAll()[0]);
     cout << "start\n";
+    b.playPause();
     cin>>input;
     cout << "pause \n";
+    b.playPause();
     cin>>input;
     cout<< "resume \n";
+    b.playPause();
     cin>>input;
     cout << "stop\n";
 }

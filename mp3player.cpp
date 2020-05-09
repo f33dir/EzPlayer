@@ -18,7 +18,6 @@ void mp3Player::playSong(song input){
     _stream =  BASS_StreamCreateFile(false,input.getFilename().c_str(),0,0,0);
     _current = input;
     startThread();
-    initStream();
 }
 void mp3Player::initStream(){
     BASS_ChannelPlay(_stream,TRUE);
