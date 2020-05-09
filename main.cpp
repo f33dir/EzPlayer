@@ -5,8 +5,10 @@
 #include "bass/bass.h"
 #include <string>
 #include "mp3player.h"
+#include <thread>
 using namespace std;
 int main(){
+    int input;
     BASS_Init(-1,44100,0,0,0);
     mp3Manager a;
     mp3Player b;
@@ -19,5 +21,6 @@ int main(){
     cout<<a.getAll()[0].getFilename();
     b.initialize();
     b.importSong(a.getAll()[0]);
-    b.startPlaying();
+    cin >>input;
+    b.play();
 }

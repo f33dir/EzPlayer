@@ -12,6 +12,7 @@ public:
     song isPlaying();
     void switchPlaying();
     void setPosition();
-    DWORD startPlaying();
+    void startPlaying();
+    void play();
 };
 #endif // MP3PLAYER_H
