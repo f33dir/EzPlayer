@@ -15,7 +15,7 @@ vector<song> mp3Manager::getAll(){
 vector<song> mp3Manager::getArtistList(vector<song> input, string artist){
     vector<song> output;
     for(int i = 0;i<input.size();i++){
-        if(input[i].getArtist()== artist){
+        if(input[i].getArtist().find(artist) !=std::string::npos){
             output.push_back(input[i]);
         }
     };
@@ -25,7 +25,7 @@ vector<song> mp3Manager::getArtistList(vector<song> input, string artist){
 vector<song> mp3Manager::getAlbumList(vector<song> input, string album){
     vector<song> output;
     for(int i = 0;i<input.size();i++){
-        if(input[i].getAlbum()== album){
+        if(input[i].getAlbum().find(album) !=std::string::npos){
             output.push_back(input[i]);
         }
     };
@@ -35,7 +35,7 @@ vector<song> mp3Manager::getAlbumList(vector<song> input, string album){
 vector<song> mp3Manager::getGenreList(vector<song> input, string genre){
     vector<song> output;
     for(int i = 0;i<input.size();i++){
-        if(input[i].getGenre()== genre){
+        if(input[i].getGenre().find(genre) !=std::string::npos){
             output.push_back(input[i]);
         }
     };
@@ -45,7 +45,7 @@ vector<song> mp3Manager::getGenreList(vector<song> input, string genre){
 vector<song> mp3Manager::getYearList(vector<song> input, string year){
     vector<song> output;
     for(int i = 0;i<input.size();i++){
-        if(input[i].getYear()== year){
+        if(input[i].getYear().find(year) !=std::string::npos){
             output.push_back(input[i]);
         }
     };
@@ -55,7 +55,7 @@ vector<song> mp3Manager::getYearList(vector<song> input, string year){
 vector<song> mp3Manager::getFilenameList(vector<song> input, string Filename){
     vector<song> output;
     for(int i = 0;i<input.size();i++){
-        if(input[i].getFilename()== Filename){
+        if(input[i].getFilename().find(Filename) !=std::string::npos){
             output.push_back(input[i]);
         }
     };
@@ -65,7 +65,7 @@ vector<song> mp3Manager::getFilenameList(vector<song> input, string Filename){
 vector<song> mp3Manager::getNameList(vector<song> input, string name){
     vector<song> output;
     for(int i = 0;i<input.size();i++){
-        if(input[i].getName()== name){
+        if(input[i].getName().find(name) !=std::string::npos){
             output.push_back(input[i]);
         }
     };

@@ -23,6 +23,12 @@ public:
     ~MainWindow();
 
 private slots:
+    void on_playButton_clicked();
+
+private slots:
+    void on_searchButton_clicked();
+
+private slots:
     void on_songList_doubleClicked(const QModelIndex &index);
 
 private slots:

@@ -22,8 +22,7 @@ public:
     vector<song> getAll();//+
     void addDirectory(string);//+
     void rescanDirectories();//+
-    vector<song> search(string,string,string,string,string,string);
+    vector<song> search(string name,string filename,string year,string genre,string artist ,string album);
     void clearData();
 };
-
 #endif // MP3MANAGER_H

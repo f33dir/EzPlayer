@@ -14,7 +14,9 @@ bool mp3Player::initializeEngine(){
 }
 void mp3Player::playSong(song input){
     this->stopStream();
-    this_thread::sleep_for(std::chrono::milliseconds(100));
+    if (_thr.joinable()){
+        _thr.join();
+    }
     _stream =  BASS_StreamCreateFile(false,input.getFilename().c_str(),0,0,0);
     _current = input;
     startThread();
@@ -22,7 +24,7 @@ void mp3Player::playSong(song input){
 void mp3Player::initStream(){
     BASS_ChannelPlay(_stream,TRUE);
     while (BASS_ChannelIsActive(_stream) != BASS_ACTIVE_STOPPED){
-        this_thread::sleep_for(std::chrono::milliseconds(100));
+        this_thread::sleep_for(std::chrono::milliseconds(99));
     };
 }
 void mp3Player::startThread(){
