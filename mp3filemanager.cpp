@@ -21,6 +21,7 @@ void mp3FileManager::saveAll(mp3Manager& m){
 void mp3FileManager::loadFilepaths(mp3Manager& m){
     ifstream file("cache");
     vector<string>* output = m.getFilepathContainer();
+    output->clear();
     string check;
     getline(file,check);
     string input;
@@ -53,6 +54,7 @@ vector<song> mp3FileManager::getSongs(vector<string> input){
 void mp3FileManager::loadSongs(mp3Manager &m){
     ifstream file("cachesongs");
     vector<song>* output = m.getDatabase();
+    output->clear();
     string check;
     getline(file,check);
     if(check == "</cachesongs>"){
@@ -62,5 +64,6 @@ void mp3FileManager::loadSongs(mp3Manager &m){
             output->push_back(temp);
         }
     }
+    output->pop_back();
     file.close();
 }
