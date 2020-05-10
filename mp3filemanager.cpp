@@ -37,6 +37,7 @@ vector<song> mp3FileManager::getSongs(vector<string> input){
     namespace fs = std::filesystem;
     vector<song> output;
     for(int i = 0;i<input.size();i++){
+       if(fs::exists(input[i])){
         for(auto& p: fs::recursive_directory_iterator(input[i])){
             string path = p.path();
             if((!p.is_directory())&&(path.find(".mp3") == path.size()-4)){
@@ -44,6 +45,7 @@ vector<song> mp3FileManager::getSongs(vector<string> input){
                 temp.updateSongClass(path);
                 output.push_back(temp);
             }
+        }
         }
     }
     return output;

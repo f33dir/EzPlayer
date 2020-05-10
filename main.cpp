@@ -6,27 +6,14 @@
 #include <string>
 #include "mp3player.h"
 #include <thread>
+#include <QGuiApplication>
+#include <QApplication>
+#include "mainwindow.h"
 using namespace std;
-int main(){
-    string input;
-    mp3Manager a;
-    mp3Player b;
-    a.addDirectory("/home/f33dir/build-template-Desktop-u041fu043e u0443u043cu043eu043bu0447u0430u043du0438u044e/mp3folder/");
-    a.rescanDirectories();
-    mp3FileManager::saveAll(a);
-    a.clearData();
-    mp3FileManager::loadFilepaths(a);
-    mp3FileManager::loadSongs(a);
-    cout<<a.getAll()[0].getFilename();
-    b.playSong(a.getAll()[0]);
-    cout << "start\n";
-    b.playPause();
-    cin>>input;
-    cout << "pause \n";
-    b.playPause();
-    cin>>input;
-    cout<< "resume \n";
-    b.playPause();
-    cin>>input;
-    cout << "stop\n";
+int main(int argc, char *argv[]){
+    QCoreApplication::setAttribute(Qt::AA_EnableHighDpiScaling);
+    QApplication a(argc, argv);
+    MainWindow w;
+    w.show();
+    return a.exec();
 }

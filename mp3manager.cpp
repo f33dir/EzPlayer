@@ -85,3 +85,4 @@ void mp3Manager::clearData(){
     _database.clear();
     _filepathContainer.clear();
 };
+
