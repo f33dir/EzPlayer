@@ -62,11 +62,13 @@ void MainWindow::updateList(){
 
 void MainWindow::on_searchButton_clicked()
 {
+
     string year = ui->yearLine->text().toStdString();
     string name = ui->nameLine->text().toStdString();
     string album = ui->albumLine->text().toStdString();
     string artist = ui->artistLine->text().toStdString();
     string genre = ui->genreLine->text().toStdString();
+    manager.rescanDirectories();
     vector<song>* output = manager.getDatabase();
     vector<song> temp = manager.search(name,"",year,genre, artist ,album);
     *manager.getDatabase() = temp;
