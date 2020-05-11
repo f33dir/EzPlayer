@@ -9,6 +9,7 @@
 #include "mp3player.h"
 #include <thread>
 #include <QTimer>
+#include <cstdlib>
 MainWindow::MainWindow(QWidget *parent) :
     QMainWindow(parent),
     ui(new Ui::MainWindow)
@@ -81,7 +82,11 @@ void MainWindow::on_playButton_clicked()
     player.playPause();
 }
 void MainWindow::slotTimerAlarm(){
+    int current = player.getCurrentTime();
+    int total = player.getTotalTime();
+    string currentString = to_string(div(current,60).quot)+":"+to_string(div(div(current,60).rem,10).quot)+to_string(div(div(current,60).rem,10).rem);
+    string totalString = to_string(div(total,60).quot)+":"+to_string(div(div(total,60).rem,10).quot)+to_string(div(div(total,60).rem,10).rem);
     if(player.isActive()){
-
+        ui->timeLabel->setText(QString::fromStdString(currentString+"/"+totalString));
     }
 }

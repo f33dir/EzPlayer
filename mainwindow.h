@@ -10,6 +10,7 @@
 #include "mp3player.h"
 #include <thread>
 #include <vector>
+#include <QTimer>
 namespace Ui {
 class MainWindow;
 }
@@ -21,7 +22,8 @@ class MainWindow : public QMainWindow
 public:
     explicit MainWindow(QWidget *parent = 0);
     ~MainWindow();
-
+public slots:
+    void slotTimerAlarm();
 private slots:
     void on_playButton_clicked();
 
@@ -48,6 +50,6 @@ private:
     void updateList();
     vector<song> currentSongs;
     QTimer *timer;
-    void slotTimerAlarm();
+
 };
 #endif // MAINWINDOW_H
