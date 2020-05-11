@@ -17,7 +17,7 @@ MainWindow::MainWindow(QWidget *parent) :
     ui->setupUi(this);
     timer = new QTimer();
     connect(timer, SIGNAL(timeout()), this, SLOT(slotTimerAlarm()));
-    timer->start(500);
+    timer->start(250);
     ui->positionSlider->setMaximum(100);
     ui->positionSlider->setMinimum(0);
 }
@@ -97,13 +97,11 @@ void MainWindow::slotTimerAlarm(){
 
 void MainWindow::on_positionSlider_sliderPressed()
 {
-//    sliderLock = true;
 }
 
 void MainWindow::on_positionSlider_sliderReleased()
 {
-//    player.setPosition(ui->positionSlider->value());
-//    sliderLock - false;
+    player.setPosition(ui->positionSlider->value());
 }
 
 void MainWindow::on_positionSlider_valueChanged(int value)
@@ -112,5 +110,9 @@ void MainWindow::on_positionSlider_valueChanged(int value)
 void MainWindow::on_positionSlider_sliderMoved(int position)
 {
     player.setPosition(ui->positionSlider->value());
-    sliderLock - false;
+}
+
+void MainWindow::on_volumeSlider_valueChanged(int value)
+{
+    player.setVolume(value);
 }

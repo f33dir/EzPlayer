@@ -26,5 +26,6 @@ public:
     int getCurrentTime();
     int getTotalTime();
     bool isActive();
+    void setVolume(int);
 };
 #endif // MP3PLAYER_H

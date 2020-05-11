@@ -66,3 +66,7 @@ void mp3Player::setPosition(int input){
     double seconds= input*getTotalTime()/100;
     BASS_ChannelSetPosition(_stream,BASS_ChannelSeconds2Bytes(_stream,seconds),BASS_POS_BYTE);
 }
+void mp3Player::setVolume(int value){
+    float input = ((double)value/100);
+    BASS_ChannelSetAttribute(_stream,BASS_ATTRIB_VOL,input);
+}
