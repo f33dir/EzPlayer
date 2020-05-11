@@ -18,6 +18,8 @@ MainWindow::MainWindow(QWidget *parent) :
     timer = new QTimer();
     connect(timer, SIGNAL(timeout()), this, SLOT(slotTimerAlarm()));
     timer->start(500);
+    ui->positionSlider->setMaximum(100);
+    ui->positionSlider->setMinimum(0);
 }
 MainWindow::~MainWindow()
 {
@@ -88,5 +90,7 @@ void MainWindow::slotTimerAlarm(){
     string totalString = to_string(div(total,60).quot)+":"+to_string(div(div(total,60).rem,10).quot)+to_string(div(div(total,60).rem,10).rem);
     if(player.isActive()){
         ui->timeLabel->setText(QString::fromStdString(currentString+"/"+totalString));
+        int temp = ((double)current/(double)total)*100;
+        ui->positionSlider->setValue(temp);
     }
 }

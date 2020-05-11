@@ -50,6 +50,5 @@ private:
     void updateList();
     vector<song> currentSongs;
     QTimer *timer;
-
 };
 #endif // MAINWINDOW_H
