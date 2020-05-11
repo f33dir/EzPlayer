@@ -20,7 +20,7 @@ public:
     mp3Player();
     void playSong(song);
     song isPlaying();
-    void setPosition();
+    void setPosition(int);
     void restart();
     void playPause();
     int getCurrentTime();

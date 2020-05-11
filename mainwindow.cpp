@@ -94,3 +94,23 @@ void MainWindow::slotTimerAlarm(){
         ui->positionSlider->setValue(temp);
     }
 }
+
+void MainWindow::on_positionSlider_sliderPressed()
+{
+//    sliderLock = true;
+}
+
+void MainWindow::on_positionSlider_sliderReleased()
+{
+//    player.setPosition(ui->positionSlider->value());
+//    sliderLock - false;
+}
+
+void MainWindow::on_positionSlider_valueChanged(int value)
+{
+}
+void MainWindow::on_positionSlider_sliderMoved(int position)
+{
+    player.setPosition(ui->positionSlider->value());
+    sliderLock - false;
+}

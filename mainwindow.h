@@ -25,6 +25,18 @@ public:
 public slots:
     void slotTimerAlarm();
 private slots:
+    void on_positionSlider_sliderMoved(int position);
+
+private slots:
+    void on_positionSlider_valueChanged(int value);
+
+private slots:
+    void on_positionSlider_sliderReleased();
+
+private slots:
+    void on_positionSlider_sliderPressed();
+
+private slots:
     void on_playButton_clicked();
 
 private slots:
@@ -50,5 +62,6 @@ private:
     void updateList();
     vector<song> currentSongs;
     QTimer *timer;
+    bool sliderLock;
 };
 #endif // MAINWINDOW_H
