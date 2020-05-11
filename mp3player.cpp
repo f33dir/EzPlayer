@@ -53,3 +53,12 @@ void mp3Player::playPause(){
 mp3Player::mp3Player(){
     initializeEngine();
 }
+int mp3Player::getCurrentTime(){
+    return BASS_ChannelBytes2Seconds(_stream,BASS_ChannelGetPosition(_stream,BASS_POS_BYTE));
+}
+int mp3Player::getTotalTime(){
+    return BASS_ChannelBytes2Seconds(_stream,BASS_ChannelGetLength(_stream,BASS_POS_BYTE));
+}
+bool mp3Player::isActive(){
+    return (BASS_ChannelIsActive(_stream) != BASS_ACTIVE_STOPPED);
+}

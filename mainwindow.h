@@ -47,6 +47,7 @@ private:
     mp3Player player;
     void updateList();
     vector<song> currentSongs;
+    QTimer *timer;
+    void slotTimerAlarm();
 };
-
 #endif // MAINWINDOW_H

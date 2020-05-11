@@ -8,19 +8,20 @@
 #include <string>
 #include "mp3player.h"
 #include <thread>
+#include <QTimer>
 MainWindow::MainWindow(QWidget *parent) :
     QMainWindow(parent),
     ui(new Ui::MainWindow)
 {
     ui->setupUi(this);
+    timer = new QTimer();
+    connect(timer, SIGNAL(timeout()), this, SLOT(slotTimerAlarm()));
+    timer->start(500);
 }
-
 MainWindow::~MainWindow()
 {
     delete ui;
 }
-
-
 void MainWindow::on_saveButton_clicked()
 {
     fManager.saveAll(manager);
@@ -78,4 +79,9 @@ void MainWindow::on_searchButton_clicked()
 void MainWindow::on_playButton_clicked()
 {
     player.playPause();
+}
+void MainWindow::slotTimerAlarm(){
+    if(player.isActive()){
+
+    }
 }

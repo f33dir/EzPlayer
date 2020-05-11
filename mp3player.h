@@ -7,6 +7,8 @@ class mp3Player{
     song _current;
     HSTREAM _stream;
     thread _thr;
+    int songNumber;
+    vector<song> queue;
     void resumeStream();
     void pauseStream();
     bool initializeEngine();
@@ -21,5 +23,8 @@ public:
     void setPosition();
     void restart();
     void playPause();
+    int getCurrentTime();
+    int getTotalTime();
+    bool isActive();
 };
 #endif // MP3PLAYER_H
