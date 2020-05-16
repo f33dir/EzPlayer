@@ -35,7 +35,7 @@ void MainWindow::on_loadButton_clicked()
     ui->songList->clear();
     fManager.loadFilepaths(manager);
     fManager.loadSongs(manager);
-    updateList();
+    updateList(*(manager.getDatabase()));
 }
 
 void MainWindow::on_addPathButton_clicked()
@@ -51,14 +51,14 @@ void MainWindow::on_addPathButton_clicked()
     if(g){
         manager.addDirectory(path);}
     manager.rescanDirectories();
-    updateList();
+    updateList(*(manager.getDatabase()));
 }
 void MainWindow::on_songList_doubleClicked(const QModelIndex &index){
     player.playSong(currentSongs[index.row()]);
 }
-void MainWindow::updateList(){
+void MainWindow::updateList(vector<song> songs){
     ui->songList->clear();
-    currentSongs = manager.getAll();
+    currentSongs = songs;
     for (int i = 0;i<currentSongs.size();i++){
         ui->songList->addItem(QString::fromStdString(currentSongs[i].getName()));
     }
@@ -72,11 +72,8 @@ void MainWindow::on_searchButton_clicked()
     string album = ui->albumLine->text().toStdString();
     string artist = ui->artistLine->text().toStdString();
     string genre = ui->genreLine->text().toStdString();
-    manager.rescanDirectories();
-    vector<song>* output = manager.getDatabase();
     vector<song> temp = manager.search(name,"",year,genre, artist ,album);
-    *manager.getDatabase() = temp;
-    updateList();
+    updateList(temp);
 }
 
 void MainWindow::on_playButton_clicked()

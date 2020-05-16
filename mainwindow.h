@@ -62,7 +62,7 @@ private:
     mp3FileManager fManager;
     mp3Manager manager;
     mp3Player player;
-    void updateList();
+    void updateList(vector<song>);
     vector<song> currentSongs;
     QTimer *timer;
     void mySliderValueChanged(int newPos);
